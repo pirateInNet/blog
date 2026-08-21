@@ -1,6 +1,11 @@
-# blog
-my blog, i write about programming, cyber security, &amp; some other topics
+# YBD blog
+- this is my blog, I write about programming, cyber security, & some other topics like basic GUI stuff
 
+- I use [Zola](https://www.getzola.org/).
+
+***
+
+## license:
 
 Shield: [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 

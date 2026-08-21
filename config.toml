@@ -1,0 +1,38 @@
+base_url = "https://simple.com"
+theme = "radion"
+generate_feeds = true
+compile_sass = true
+build_search_index = true
+
+title = "YBD blog"
+author = "Youness B.D."
+
+taxonomies = [
+    { name = "tags" },
+    { name = "categories" },
+]
+
+[markdown]
+highlighting = { theme = "github-dark" }
+
+[search]
+index_format = "elasticlunr_json"
+
+[extra]
+radion_title = "Y.B.D. blog"
+comments = false
+giscus_repo = ""
+giscus_repo_id = ""
+giscus_data_category_id = ""
+theme = "dark" 
+enable_search = true
+latex = true
+codeblock = true
+radion_menu = [
+    { url = "$BASE_URL", name = "Home" },
+    { url = "$BASE_URL/categories", name = "Categories" },
+    { url = "$BASE_URL/tags", name = "Tags" },
+]
+favicon = false
+
+github = "https://github.com/pirateInNet"
