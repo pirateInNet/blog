@@ -1,5 +1,5 @@
 +++
-title = "My first try to Raylib"
+title = "My first try with Raylib"
 date = 2026-08-13
 
 [taxonomies]
