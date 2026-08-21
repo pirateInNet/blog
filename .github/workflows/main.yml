@@ -1,27 +1,29 @@
-on: push
-name: Build and deploy GH Pages
+
+
+
+name: Zola GitHub pages
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  build:
+  zola:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     steps:
-      - name: checkout main
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v3
+      - name: Install Zola
+        run: curl -L ${BASE_URL}/${VERS}/zola-${VERS}-${ARCH}.tar.gz | tar -xz
+      - name: Zola Build
+        run: ./zola build
+      - name: Deploy Zola
+        uses: crazy-max/ghaction-github-pages@v3
         with:
-          submodules: recursive
-          token: ${{ secrets.G_TOKEN }}
-      - name: Prebuild
-        uses: oven-sh/setup-bun@v1
-      - run: bun install
-        working-directory: ./themes/tranquil
-      - run: bun x tailwindcss -i styles/styles.css -o static/styles/styles.css --minify
-        working-directory: ./themes/tranquil
-      - name: build_and_deploy
-        uses: shalzz/zola-deploy-action@master
-        env:
-          # Target branch
-          PAGES_BRANCH: gh-pages
-          # Provide personal access token
-          #TOKEN: ${{ secrets.TOKEN }}
-          # Or if publishing to the same repo, use the automatic token
-          TOKEN: ${{ secrets.G_TOKEN }}
+          target_branch: gh-pages
+          build_dir: public
+    env:
+      BASE_URL: https://github.com/getzola/zola/releases/download
+      VERS: v0.16.1
+      ARCH: x86_64-unknown-linux-gnu
+      # https://github.com/crazy-max/ghaction-github-pages/issues/1#issuecomment-623202206
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
