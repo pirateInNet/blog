@@ -1,4 +1,4 @@
-base_url = "https://simple.com"
+base_url = "https://pirateinnet.github.io/blog/"
 theme = "radion"
 generate_feeds = true
 compile_sass = true
