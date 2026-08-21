@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 Allow: /
-Sitemap: https://simple.com/sitemap.xml
+Sitemap: https://pirateinnet.github.io/blog/sitemap.xml
