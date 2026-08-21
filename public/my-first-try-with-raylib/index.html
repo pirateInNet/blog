@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  
+  
+  <meta name="description" content="what is Raylib?
+how to setup it in a Linux machine?
+how to compile it from source?
+&amp;amp; how to use it to make games?" />
+  <meta property="og:description" content="what is Raylib?
+how to setup it in a Linux machine?
+how to compile it from source?
+&amp;amp; how to use it to make games?" />
+  <meta property="twitter:description" content="what is Raylib?
+how to setup it in a Linux machine?
+how to compile it from source?
+&amp;amp; how to use it to make games?" />
+  
+  
+
+  <!-- Title -->
+  
+  
+  
+  <title>
+    
+    My first try to Raylib
+    
+</title>
+
+  <!-- Additional Facebook Meta Tags -->
+  <meta property="og:site_name" content="YBD blog" />
+  <meta property="og:url" content="https:&#x2F;&#x2F;simple.com&#x2F;my-first-try-with-raylib&#x2F;" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="My first try to Raylib" />
+
+  <!-- Additional Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https:&#x2F;&#x2F;simple.com&#x2F;my-first-try-with-raylib&#x2F;" />
+  <meta name="twitter:title" content="My first try to Raylib" />
+
+  <!-- Additional Fediverse Tags -->
+   
+
+  <!-- Cover images -->
+  
+  
+
+  <meta property="og:image" content="https:&#x2F;&#x2F;simple.com&#x2F;icons&#x2F;favicon&#x2F;web-app-manifest-512x512.png" />
+
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;simple.com&#x2F;icons&#x2F;favicon&#x2F;web-app-manifest-512x512.png" />
+
+  <!-- Favicons -->
+  
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://simple.com/atom.xml" />
+  
+
+  <!-- Load Styles -->
+  
+  <link rel="stylesheet" href="https://simple.com/site.css" />
+  
+
+  <!-- Syntax highlighting theming -->
+  
+
+  <!-- Load Fonts -->
+  
+
+  
+
+
+
+
+
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  
+
+
+
+<!-- Forcing Font -->
+<style>
+body {
+  font-family:
+    "JetBrains Mono", Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace, serif !important;
+}
+</style>
+
+
+  <!-- Pass Theme Preference as Data Attribute -->
+  <script src="https://simple.com/js/init-theme.js"></script>
+
+  <!-- Reference return to click position script -->
+  <script defer src="https://simple.com/js/reference-return.js"></script>
+
+  <!-- Additional scripts -->
+  
+  
+  <script defer src="https://simple.com/js/codeblock.js"></script>
+  
+  
+  <script src="https://simple.com/js/toggle-theme.js"></script>
+  
+  
+<!-- MathJax script for rendering LaTeX math equations -->
+<script src="https://simple.com/js/mathjax-config.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+  async
+></script>
+
+
+  
+<script type="text/javascript" src="https://simple.com/elasticlunr.min.js"></script>
+<script type="text/javascript" src="https://simple.com/js/search.js"></script>
+
+  
+</head>
+
+<!-- Body element (contents of the page) -->
+
+<body class="hack main container">
+  
+
+  
+    
+  
+  
+  <section class="nav-header">
+    <nav
+      itemscope
+      itemtype="http://schema.org/SiteNavigationElement"
+      class="navbar"
+    >
+      <section class="nav-links">
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://simple.com"
+        >
+          <span itemprop="name">Home</span>
+        </a>
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://simple.com/categories"
+        >
+          <span itemprop="name">Categories</span>
+        </a>
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://simple.com/tags"
+        >
+          <span itemprop="name">Tags</span>
+        </a>
+        
+      </section>
+    </nav>
+    <aside class="user-actions-container">
+      
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        class="search-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+        />
+      </svg>
+      <input type="text" id="search" placeholder="Search..." />
+      <section class="search-results" aria-live="polite">
+        <article class="search-results__items" role="list"></article>
+      </section>
+        
+      <a
+        href="https://simple.com/atom.xml"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://simple.com/icons/rss.svg"
+          id="rss-icon"
+          alt="RSS feed"
+          class="social-icon"
+        />
+      </a>
+       
+      <a
+        href="https:&#x2F;&#x2F;github.com&#x2F;pirateInNet"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://simple.com/icons/github.svg"
+          id="github-icon"
+          alt="GitHub"
+          class="social-icon"
+        />
+      </a>
+       
+    </aside>
+  </section>
+  
+
+  
+
+
+  <main>
+
+
+    
+
+
+
+    
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">My first try to Raylib</h1>
+        <data class="muted">
+    <svg class="icon i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <data>3 minute read</data>
+    <svg class="icon i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2026-08-13
+</data>
+    </header>
+
+    <article itemprop="articleBody">
+        
+            <p>what is Raylib?
+how to setup it in a Linux machine?
+how to compile it from source?
+&amp; how to use it to make games?</p>
+
+            
+              <details class="toc-container">
+  <summary class="toc-title">Table of Contents</summary>
+  <ul class="toc-list">
+    
+    <li>
+      <a href="https://simple.com/my-first-try-with-raylib/#what-is-raylib">what is Raylib?</a>
+      
+      <ul>
+        
+        <li>
+          <a href="https://simple.com/my-first-try-with-raylib/#why-you-should-use-raylib-for-your-apps-games">why you should use Raylib for your apps&#x2F;games?</a>
+        </li>
+         
+      </ul>
+      
+    </li>
+    
+    <li>
+      <a href="https://simple.com/my-first-try-with-raylib/#how-to-setup-raylib-in-a-linux-machine">how to setup Raylib in a Linux machine?</a>
+      
+      <ul>
+        
+        <li>
+          <a href="https://simple.com/my-first-try-with-raylib/#installing-raylib-by-compiling-the-source-on-debian">Installing Raylib by compiling the source on Debian</a>
+        </li>
+        
+        <ul>
+          
+          <li>
+            <a href="https://simple.com/my-first-try-with-raylib/#1-install-build-dependencies">1. Install Build Dependencies</a>
+          </li>
+          
+          <li>
+            <a href="https://simple.com/my-first-try-with-raylib/#2-clone-and-build-raylib">2. Clone and Build Raylib</a>
+          </li>
+          
+          <li>
+            <a href="https://simple.com/my-first-try-with-raylib/#3-update-shared-library-cache">3. Update Shared Library Cache</a>
+          </li>
+          
+          <li>
+            <a href="https://simple.com/my-first-try-with-raylib/#4-test-installation">4. Test Installation</a>
+          </li>
+          
+          <li>
+            <a href="https://simple.com/my-first-try-with-raylib/#quick-reference-troubleshooting">Quick Reference &#x2F; Troubleshooting</a>
+          </li>
+          
+        </ul>
+         
+      </ul>
+      
+    </li>
+    
+    <li>
+      <a href="https://simple.com/my-first-try-with-raylib/#challenge">Challenge:</a>
+      
+      <ul>
+        
+        <li>
+          <a href="https://simple.com/my-first-try-with-raylib/#explaining-the-challenge">explaining the challenge:</a>
+        </li>
+         
+        <li>
+          <a href="https://simple.com/my-first-try-with-raylib/#how-you-can-solve-it">how you can solve it?</a>
+        </li>
+         
+      </ul>
+      
+    </li>
+    
+  </ul>
+</details>
+
+            
+
+            <!-- Render the rest of the content after removing the summary portion -->
+            
+<span id="continue-reading"></span><h2 id="what-is-raylib">what is Raylib?</h2>
+<ul>
+<li>it is a game development library, that can be used with <em>C</em> or <em>C++</em>, or even a lot of other languages using a binding.</li>
+<li>it used to make 2D games &amp; 3D games.</li>
+</ul>
+<h3 id="why-you-should-use-raylib-for-your-apps-games">why you should use Raylib for your apps/games?</h3>
+<ul>
+<li>super easy syntax &amp; logic</li>
+<li>easy to install &amp; to compile &amp; to deploy</li>
+<li>2D &amp; 3D</li>
+<li>you can make cross-platform desktop apps with it as well</li>
+<li>fast &amp; small binary size</li>
+<li>can be used in old openGL env</li>
+</ul>
+<h2 id="how-to-setup-raylib-in-a-linux-machine">how to setup Raylib in a Linux machine?</h2>
+<ul>
+<li>usually, you can install it just from your package manager,<br>but if you have an <strong>old graphic card</strong>, I can show you</li>
+</ul>
+<h3 id="installing-raylib-by-compiling-the-source-on-debian">Installing Raylib by compiling the source on Debian</h3>
+<ul>
+<li>that bash script is for printing the pc specs:</li>
+</ul>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #6A737D;">#!/bin/bash</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #79B8FF;">echo</span><span style="color: #9ECBFF;"> &quot;$(</span><span style="color: #B392F0;">whoami</span><span style="color: #9ECBFF;">)@$(</span><span style="color: #B392F0;">hostname</span><span style="color: #9ECBFF;">)&quot;</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">echo</span><span style="color: #9ECBFF;"> &quot;&quot;</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">echo</span><span style="color: #9ECBFF;"> &quot;OS: $(</span><span style="color: #79B8FF;">.</span><span style="color: #9ECBFF;"> /etc/os-release;</span><span style="color: #79B8FF;"> echo</span><span> $NAME</span><span style="color: #9ECBFF;">) $(</span><span style="color: #B392F0;">uname</span><span style="color: #79B8FF;"> -m</span><span style="color: #9ECBFF;">)&quot;</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">echo</span><span style="color: #9ECBFF;"> &quot;Host: $(</span><span style="color: #B392F0;">cat</span><span style="color: #9ECBFF;"> /sys/class/dmi/id/product_name</span><span style="color: #F97583;"> |</span><span style="color: #B392F0;"> sed</span><span style="color: #9ECBFF;"> &#39;s/ *$//&#39;) ($(</span><span style="color: #B392F0;">cat</span><span style="color: #9ECBFF;"> /sys/class/dmi/id/product_version))&quot;</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">echo</span><span style="color: #9ECBFF;"> &quot;Kernel: $(</span><span style="color: #B392F0;">uname</span><span style="color: #79B8FF;"> -s</span><span style="color: #9ECBFF;">) $(</span><span style="color: #B392F0;">uname</span><span style="color: #79B8FF;"> -r</span><span style="color: #9ECBFF;">)&quot;</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">uptime</span><span style="color: #79B8FF;"> -p</span><span style="color: #F97583;"> |</span><span style="color: #B392F0;"> sed</span><span style="color: #9ECBFF;"> &#39;s/up/Uptime:/&#39;</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">echo</span><span style="color: #9ECBFF;"> &quot;Shell: $(</span><span style="color: #B392F0;">basename</span><span style="color: #9ECBFF;"> &quot;</span><span>$SHELL</span><span style="color: #9ECBFF;">&quot;)</span><span> $BASH_VERSION</span><span style="color: #9ECBFF;">&quot;</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">echo</span><span style="color: #9ECBFF;"> &quot;CPU: $(</span><span style="color: #B392F0;">grep</span><span style="color: #79B8FF;"> -m1</span><span style="color: #9ECBFF;"> &#39;model name&#39; /proc/cpuinfo</span><span style="color: #F97583;"> |</span><span style="color: #B392F0;"> cut</span><span style="color: #79B8FF;"> -d: -f2</span><span style="color: #F97583;"> |</span><span style="color: #B392F0;"> sed</span><span style="color: #9ECBFF;"> &#39;s/^ //&#39;) ($(</span><span style="color: #B392F0;">grep</span><span style="color: #79B8FF;"> -c</span><span style="color: #9ECBFF;"> &#39;^processor&#39; /proc/cpuinfo)) @ $(</span><span style="color: #B392F0;">awk</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">-F:</span><span style="color: #9ECBFF;"> &#39;/cpu MHz/ {printf &quot;%.2f&quot;, $2/1000; exit}&#39; /proc/cpuinfo) GHz&quot;</span></span>
+<span class="giallo-l"><span>i</span><span style="color: #F97583;">=</span><span style="color: #9ECBFF;">1</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">lspci</span><span style="color: #F97583;"> |</span><span style="color: #B392F0;"> grep</span><span style="color: #79B8FF;"> -E</span><span style="color: #9ECBFF;"> &#39;VGA|3D&#39;</span><span style="color: #F97583;"> | while</span><span style="color: #79B8FF;"> read -r</span><span style="color: #9ECBFF;"> line</span><span>;</span><span style="color: #F97583;"> do</span></span>
+<span class="giallo-l"><span>  gpu</span><span style="color: #F97583;">=</span><span>$(</span><span style="color: #79B8FF;">echo</span><span style="color: #9ECBFF;"> &quot;</span><span>$line</span><span style="color: #9ECBFF;">&quot;</span><span style="color: #F97583;"> |</span><span style="color: #B392F0;"> cut</span><span style="color: #79B8FF;"> -d</span><span style="color: #9ECBFF;"> &#39;:&#39;</span><span style="color: #79B8FF;"> -f3-</span><span style="color: #F97583;"> |</span><span style="color: #B392F0;"> sed</span><span style="color: #9ECBFF;"> &#39;s/^ //; s/ (rev.*//&#39;</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">  echo</span><span style="color: #9ECBFF;"> &quot;GPU </span><span>$i</span><span style="color: #9ECBFF;">: </span><span>$gpu</span><span style="color: #9ECBFF;">&quot;</span></span>
+<span class="giallo-l"><span>  i</span><span style="color: #F97583;">=</span><span>$((</span><span style="color: #B392F0;">i+1</span><span>))</span></span>
+<span class="giallo-l"><span style="color: #F97583;">done</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">echo</span><span style="color: #9ECBFF;"> &quot;Wifi adapter: $(</span><span style="color: #B392F0;">lspci</span><span style="color: #F97583;"> |</span><span style="color: #B392F0;"> grep</span><span style="color: #79B8FF;"> -i</span><span style="color: #9ECBFF;"> &#39;network&#39;</span><span style="color: #F97583;"> |</span><span style="color: #B392F0;"> cut</span><span style="color: #79B8FF;"> -d</span><span style="color: #9ECBFF;"> &#39;:&#39;</span><span style="color: #79B8FF;"> -f3-</span><span style="color: #F97583;"> |</span><span style="color: #B392F0;"> sed</span><span style="color: #9ECBFF;"> &#39;s/^ //&#39;)&quot;</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">echo</span><span style="color: #9ECBFF;"> &quot;Locale: </span><span>$LANG</span><span style="color: #9ECBFF;">&quot;</span></span></code></pre>
+<p>it prints, when I run it in my machine</p>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="plain"><span class="giallo-l"><span>unes@mx-linux</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>OS: Debian GNU/Linux x86_64</span></span>
+<span class="giallo-l"><span>Host: EasyNote MH45 (LX.B190X.005)</span></span>
+<span class="giallo-l"><span>Kernel: Linux 6.12.94+deb13-amd64</span></span>
+<span class="giallo-l"><span>Uptime: 14 minutes</span></span>
+<span class="giallo-l"><span>Shell: fish 5.2.37(1)-release</span></span>
+<span class="giallo-l"><span>CPU: Pentium(R) Dual-Core CPU       T4200  @ 2.00GHz (2) @ 1.99 GHz</span></span>
+<span class="giallo-l"><span>GPU 1: Intel Corporation Mobile 4 Series Chipset Integrated Graphics Controller</span></span>
+<span class="giallo-l"><span>Wifi adapter: Ralink corp. RT2790 Wireless 802.11n 1T/2R PCIe</span></span>
+<span class="giallo-l"><span>Locale: en_US.UTF-8</span></span></code></pre>
+<ul>
+<li><input disabled="" type="checkbox"/>
+<code>nano fet.sh</code></li>
+<li><input disabled="" type="checkbox"/>
+paste the code &amp; save &amp; exit</li>
+<li><input disabled="" type="checkbox"/>
+<code>chmod +x fet.sh</code></li>
+<li><input disabled="" type="checkbox"/>
+<code>./fet.sh</code></li>
+</ul>
+<p>now you know what is the name of your hardware, &amp; then you can search what is the <em>OpenGl version</em>, or how much <em>vram</em> you have</p>
+<h4 id="1-install-build-dependencies">1. Install Build Dependencies</h4>
+<p>Open your terminal and install the compiler toolchain, CMake, Git, and necessary X11/OpenGL development libraries via <code>apt</code>:</p>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #B392F0;">sudo</span><span style="color: #9ECBFF;"> apt update</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">sudo</span><span style="color: #9ECBFF;"> apt install build-essential git cmake</span><span style="color: #79B8FF;"> \</span></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">  libasound2-dev libx11-dev libxrandr-dev libxi-dev</span><span style="color: #79B8FF;"> \</span></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">  libgl1-mesa-dev libglu1-mesa-dev libxcursor-dev</span><span style="color: #79B8FF;"> \</span></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">  libxinerama-dev libwayland-dev libxkbcommon-dev</span></span></code></pre>
+<p>maybe you feel uncomfortable because you write things you don't understand, I want to tell you that it's fine,
+you don't have to understand everything that came before you, because it's abstracted on purpose, just focus on
+one thing, "setuping the programming env", &amp; then you can move to another thing, don't overwhelm yourself 💖</p>
+<h4 id="2-clone-and-build-raylib">2. Clone and Build Raylib</h4>
+<p>Clone the official Raylib repository, configure CMake to target <strong>OpenGL 2.1</strong>, compile using multiple cores, and install system-wide:</p>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #6A737D;"># Clone the repository (latest commit)</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">git</span><span style="color: #9ECBFF;"> clone</span><span style="color: #79B8FF;"> --depth 1</span><span style="color: #9ECBFF;"> https://github.com/raysan5/raylib.git</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">cd</span><span style="color: #9ECBFF;"> raylib</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #6A737D;"># Create and enter build directory</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">mkdir</span><span style="color: #9ECBFF;"> build</span><span> &amp;&amp;</span><span style="color: #79B8FF;"> cd</span><span style="color: #9ECBFF;"> build</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #6A737D;"># Configure build with OpenGL 2.1 for legacy GPUs</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">cmake</span><span style="color: #79B8FF;"> -DOPENGL_VERSION=</span><span style="color: #9ECBFF;">&quot;2.1&quot;</span><span style="color: #79B8FF;"> -DBUILD_SHARED_LIBS=ON</span><span style="color: #9ECBFF;"> ..</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #6A737D;"># Compile using 2 CPU cores</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">make</span><span style="color: #79B8FF;"> -j2</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #6A737D;"># Install system-wide to /usr/local</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">sudo</span><span style="color: #9ECBFF;"> make install</span></span>
+<span class="giallo-l"></span></code></pre><h4 id="3-update-shared-library-cache">3. Update Shared Library Cache</h4>
+<p>Register the newly installed <code>libraylib.so</code> with the dynamic linker:</p>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #B392F0;">sudo</span><span style="color: #9ECBFF;"> ldconfig</span></span>
+<span class="giallo-l"></span></code></pre><h4 id="4-test-installation">4. Test Installation</h4>
+<p>Create a minimal test program to verify that the installation and display initialization work properly.</p>
+<h5 id="create-test-c">Create <code>test.c</code>:</h5>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="c"><span class="giallo-l"><span style="color: #F97583;">#include</span><span style="color: #9ECBFF;"> &quot;raylib.h&quot;</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">int</span><span style="color: #B392F0;"> main</span><span>(</span><span style="color: #F97583;">void</span><span>) {</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">    InitWindow</span><span>(</span><span style="color: #79B8FF;">800</span><span>,</span><span style="color: #79B8FF;"> 600</span><span>,</span><span style="color: #9ECBFF;"> &quot;Raylib Installation Test&quot;</span><span>);</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">    SetTargetFPS</span><span>(</span><span style="color: #79B8FF;">60</span><span>);</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #F97583;">    while</span><span> (</span><span style="color: #F97583;">!</span><span style="color: #B392F0;">WindowShouldClose</span><span>()) {</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">        BeginDrawing</span><span>();</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">            ClearBackground</span><span>(RAYWHITE);</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">            DrawText</span><span>(</span><span style="color: #9ECBFF;">&quot;Raylib is installed and working!&quot;</span><span>,</span><span style="color: #79B8FF;"> 190</span><span>,</span><span style="color: #79B8FF;"> 200</span><span>,</span><span style="color: #79B8FF;"> 20</span><span>, LIGHTGRAY);</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">        EndDrawing</span><span>();</span></span>
+<span class="giallo-l"><span>    }</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #B392F0;">    CloseWindow</span><span>();</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    return</span><span style="color: #79B8FF;"> 0</span><span>;</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre><h5 id="compile-command">Compile Command:</h5>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #B392F0;">gcc</span><span style="color: #9ECBFF;"> test.c</span><span style="color: #79B8FF;"> -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 -o</span><span style="color: #9ECBFF;"> raylib_test</span></span></code></pre><h5 id="run">Run:</h5>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #B392F0;">./raylib_test</span></span></code></pre>
+<p><img src="https://simple.com/my-first-try-with-raylib/img1.png" alt="alt text" title="./raylib_test running" /></p>
+<h4 id="quick-reference-troubleshooting">Quick Reference / Troubleshooting</h4>
+<table><thead><tr><th>Issue</th><th>Cause</th><th>Solution</th></tr></thead><tbody>
+<tr><td><code>error while loading shared libraries: libraylib.so</code></td><td>Linker cache not updated</td><td>Run <code>sudo ldconfig</code></td></tr>
+<tr><td><code>implicit declaration of function 'SetCameraMode'</code></td><td>Raylib 5.0+ API change</td><td>Use <code>UpdateCamera(&amp;camera, CAMERA_FIRST_PERSON)</code> directly</td></tr>
+<tr><td>Raylib fails to initialize window</td><td>OpenGL driver mismatch</td><td>Ensure CMake was configured with <code>-DOPENGL_VERSION="2.1"</code></td></tr>
+</tbody></table>
+<hr />
+<h2 id="challenge">Challenge:</h2>
+<h3 id="explaining-the-challenge">explaining the challenge:</h3>
+<p>I challenge you to make the same program as below, it have about 22 line, you can do it on less or more,
+it does not matter, what matters is the result</p>
+<ul>
+<li>Size: 16.3 kB</li>
+<li>RAM : 77 mb</li>
+</ul>
+<video width="760" controls>
+  <source src="vid1.mp4" type="video/mp4">
+</video>
+<h3 id="how-you-can-solve-it">how you can solve it?</h3>
+<ul>
+<li>Drawing the circle is done by <code>DrawCircle(x, y, size, LIGHTGRAY)</code>.</li>
+<li>Animation is done by variables and adding 1 to there values inside the while loop.</li>
+<li>The collision is done by <code>if (){}</code> &amp; <code>GetScreenWidth()</code> &amp; <code>GetScreenHeight()</code>.</li>
+</ul>
+
+
+        
+    </article>
+
+    <!-- Comment section -->
+    
+      
+    
+
+
+    <!-- Page footer -->
+    
+    <footer>
+        <hr>
+        <p>
+            
+                Published by Youness B.D.
+            
+            
+                
+                in <a href="https://simple.com/categories/programming/">programming</a>
+            
+            
+                and
+                tagged
+                
+                    <a href="https://simple.com/tags/c/">C</a>
+                    
+                
+            
+        </p>
+
+        <!-- Revision history (optional) -->
+        
+          
+            
+              
+            
+          
+        
+
+        
+        
+    </footer>
+
+
+</article>
+
+
+  </main>
+  
+
+</body>
+
+</html>
