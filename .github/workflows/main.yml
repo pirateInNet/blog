@@ -1,0 +1,27 @@
+on: push
+name: Build and deploy GH Pages
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: checkout main
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.G_TOKEN }}
+      - name: Prebuild
+        uses: oven-sh/setup-bun@v1
+      - run: bun install
+        working-directory: ./themes/tranquil
+      - run: bun x tailwindcss -i styles/styles.css -o static/styles/styles.css --minify
+        working-directory: ./themes/tranquil
+      - name: build_and_deploy
+        uses: shalzz/zola-deploy-action@master
+        env:
+          # Target branch
+          PAGES_BRANCH: gh-pages
+          # Provide personal access token
+          #TOKEN: ${{ secrets.TOKEN }}
+          # Or if publishing to the same repo, use the automatic token
+          TOKEN: ${{ secrets.G_TOKEN }}
