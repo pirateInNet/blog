@@ -1,5 +1,5 @@
 # YBD blog
-- this is my blog, I write about programming, cyber security, & some other topics like basic GUI stuff
+- This is my blog, I write about programming, cyber security, & some other topics like basic GUI stuff
 
 - I use [Zola](https://www.getzola.org/).
 
