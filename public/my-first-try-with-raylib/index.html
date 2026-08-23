@@ -464,8 +464,7 @@ one thing, "setuping the programming env", &amp; then you can move to another th
 <span class="giallo-l"><span style="color: #F97583;">    return</span><span style="color: #79B8FF;"> 0</span><span>;</span></span>
 <span class="giallo-l"><span>}</span></span></code></pre><h5 id="compile-command">Compile Command:</h5>
 <pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #B392F0;">gcc</span><span style="color: #9ECBFF;"> test.c</span><span style="color: #79B8FF;"> -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 -o</span><span style="color: #9ECBFF;"> raylib_test</span></span></code></pre><h5 id="run">Run:</h5>
-<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #B392F0;">./raylib_test</span></span></code></pre>
-<p><img src="https://pirateinnet.github.io/blog/my-first-try-with-raylib/img1.png" alt="alt text" title="./raylib_test running" /></p>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #B392F0;">./raylib_test</span></span></code></pre><img src="img1.png" style="width: 100%; height: auto;" alt="./raylib_test running">
 <h4 id="quick-reference-troubleshooting">Quick Reference / Troubleshooting</h4>
 <table><thead><tr><th>Issue</th><th>Cause</th><th>Solution</th></tr></thead><tbody>
 <tr><td><code>error while loading shared libraries: libraylib.so</code></td><td>Linker cache not updated</td><td>Run <code>sudo ldconfig</code></td></tr>
@@ -481,7 +480,7 @@ it does not matter, what matters is the result</p>
 <li>Size: 16.3 kB</li>
 <li>RAM : 77 mb</li>
 </ul>
-<video width="760" controls>
+<video style="width: 100%; height: auto;" controls>
   <source src="vid1.mp4" type="video/mp4">
 </video>
 <h3 id="how-you-can-solve-it">how you can solve it?</h3>

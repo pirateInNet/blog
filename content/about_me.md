@@ -37,7 +37,8 @@ that's why I made this blog
 
 ## what I'm going to write ?
 
-- I will write a step by step tutorials, & a devlogs that shows how I made things, & a detailed challenges that will force you to **try**.
+- I will write a step by step tutorials, & a devlogs that shows how I made things, & a detailed challenges that will force you to **try**,
+& maybe some small posts about random things & ideas.
 
 ## why you should write also ?
 - that's up to you, but, there is a lot of topics I can't cover even in 10 years, so, you have to try

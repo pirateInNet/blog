@@ -158,7 +158,7 @@ gcc test.c -lraylib -lGL -lm -lpthread -ldl -lrt -lX11 -o raylib_test
 ./raylib_test
 ```
 
-![alt text](img1.png "./raylib_test running")
+<img src="img1.png" style="width: 100%; height: auto;" alt="./raylib_test running">
 
 #### Quick Reference / Troubleshooting
 
@@ -177,7 +177,7 @@ it does not matter, what matters is the result
 - Size: 16.3 kB 
 - RAM : 77 mb
 
-<video width="760" controls>
+<video style="width: 100%; height: auto;" controls>
   <source src="vid1.mp4" type="video/mp4">
 </video>
 

@@ -20,6 +20,10 @@
         <loc>https://pirateinnet.github.io/blog/categories/programming/</loc>
     </url>
     <url>
+        <loc>https://pirateinnet.github.io/blog/internet-is-dead/</loc>
+        <lastmod>2026-08-23</lastmod>
+    </url>
+    <url>
         <loc>https://pirateinnet.github.io/blog/my-first-try-with-raylib/</loc>
         <lastmod>2026-08-13</lastmod>
     </url>
@@ -31,6 +35,9 @@
     </url>
     <url>
         <loc>https://pirateinnet.github.io/blog/tags/c/</loc>
+    </url>
+    <url>
+        <loc>https://pirateinnet.github.io/blog/tags/ideas/</loc>
     </url>
     <url>
         <loc>https://pirateinnet.github.io/blog/tags/info/</loc>
