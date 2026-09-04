@@ -3,8 +3,8 @@ title = "My first try with Raylib"
 date = 2026-08-13
 
 [taxonomies]
-categories = ["programming", "game dev"]
-tags = ["C"]
+categories = ["programming"]
+tags = ["C", "game development"]
 
 [extra]
 toc = true
