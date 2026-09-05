@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  
+  
+  <meta name="description" content="there is no lightwieght offline translator for Linux?
+fine, just use goldendict" />
+  <meta property="og:description" content="there is no lightwieght offline translator for Linux?
+fine, just use goldendict" />
+  <meta property="twitter:description" content="there is no lightwieght offline translator for Linux?
+fine, just use goldendict" />
+  
+  
+
+  <!-- Title -->
+  
+  
+  
+  <title>
+    
+    Setuping a human language dictionary (goldendict)
+    
+</title>
+
+  <!-- Additional Facebook Meta Tags -->
+  <meta property="og:site_name" content="YBD blog" />
+  <meta property="og:url" content="https:&#x2F;&#x2F;pirateinnet.github.io&#x2F;blog&#x2F;setuping-a-human-language-dictionary&#x2F;" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Setuping a human language dictionary (goldendict)" />
+
+  <!-- Additional Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https:&#x2F;&#x2F;pirateinnet.github.io&#x2F;blog&#x2F;setuping-a-human-language-dictionary&#x2F;" />
+  <meta name="twitter:title" content="Setuping a human language dictionary (goldendict)" />
+
+  <!-- Additional Fediverse Tags -->
+   
+
+  <!-- Cover images -->
+  
+  
+
+  <meta property="og:image" content="https:&#x2F;&#x2F;pirateinnet.github.io&#x2F;blog&#x2F;&#x2F;icons&#x2F;favicon&#x2F;web-app-manifest-512x512.png" />
+
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;pirateinnet.github.io&#x2F;blog&#x2F;&#x2F;icons&#x2F;favicon&#x2F;web-app-manifest-512x512.png" />
+
+  <!-- Favicons -->
+  
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://pirateinnet.github.io/blog/atom.xml" />
+  
+
+  <!-- Load Styles -->
+  
+  <link rel="stylesheet" href="https://pirateinnet.github.io/blog/site.css" />
+  
+
+  <!-- Syntax highlighting theming -->
+  
+
+  <!-- Load Fonts -->
+  
+
+  
+
+
+
+
+
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  
+
+
+
+<!-- Forcing Font -->
+<style>
+body {
+  font-family:
+    "JetBrains Mono", Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace, serif !important;
+}
+</style>
+
+
+  <!-- Pass Theme Preference as Data Attribute -->
+  <script src="https://pirateinnet.github.io/blog/js/init-theme.js"></script>
+
+  <!-- Reference return to click position script -->
+  <script defer src="https://pirateinnet.github.io/blog/js/reference-return.js"></script>
+
+  <!-- Additional scripts -->
+  
+  
+  <script defer src="https://pirateinnet.github.io/blog/js/codeblock.js"></script>
+  
+  
+  <script src="https://pirateinnet.github.io/blog/js/toggle-theme.js"></script>
+  
+  
+<!-- MathJax script for rendering LaTeX math equations -->
+<script src="https://pirateinnet.github.io/blog/js/mathjax-config.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+  async
+></script>
+
+
+  
+<script type="text/javascript" src="https://pirateinnet.github.io/blog/elasticlunr.min.js"></script>
+<script type="text/javascript" src="https://pirateinnet.github.io/blog/js/search.js"></script>
+
+  
+</head>
+
+<!-- Body element (contents of the page) -->
+
+<body class="hack main container">
+  
+
+  
+    
+  
+  
+  <section class="nav-header">
+    <nav
+      itemscope
+      itemtype="http://schema.org/SiteNavigationElement"
+      class="navbar"
+    >
+      <section class="nav-links">
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://pirateinnet.github.io/blog/"
+        >
+          <span itemprop="name">Home</span>
+        </a>
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://pirateinnet.github.io/blog//categories"
+        >
+          <span itemprop="name">Categories</span>
+        </a>
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://pirateinnet.github.io/blog//tags"
+        >
+          <span itemprop="name">Tags</span>
+        </a>
+        
+      </section>
+    </nav>
+    <aside class="user-actions-container">
+      
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        class="search-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+        />
+      </svg>
+      <input type="text" id="search" placeholder="Search..." />
+      <section class="search-results" aria-live="polite">
+        <article class="search-results__items" role="list"></article>
+      </section>
+        
+      <a
+        href="https://pirateinnet.github.io/blog/atom.xml"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://pirateinnet.github.io/blog/icons/rss.svg"
+          id="rss-icon"
+          alt="RSS feed"
+          class="social-icon"
+        />
+      </a>
+       
+      <a
+        href="https:&#x2F;&#x2F;github.com&#x2F;pirateInNet"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://pirateinnet.github.io/blog/icons/github.svg"
+          id="github-icon"
+          alt="GitHub"
+          class="social-icon"
+        />
+      </a>
+       
+    </aside>
+  </section>
+  
+
+  
+
+
+  <main>
+
+
+    
+
+
+
+    
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">Setuping a human language dictionary (goldendict)</h1>
+        <data class="muted">
+    <svg class="icon i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <data>2 minute read</data>
+    <svg class="icon i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2026-09-04
+</data>
+    </header>
+
+    <article itemprop="articleBody">
+        
+            <p>there is no lightwieght offline translator for Linux?
+fine, just use <strong>goldendict</strong></p>
+
+            
+              <details class="toc-container">
+  <summary class="toc-title">Table of Contents</summary>
+  <ul class="toc-list">
+    
+    <li>
+      <a href="https://pirateinnet.github.io/blog/setuping-a-human-language-dictionary/#what-is-goldendict">what is goldendict?</a>
+      
+    </li>
+    
+    <li>
+      <a href="https://pirateinnet.github.io/blog/setuping-a-human-language-dictionary/#just-use-an-online-translator">&quot;just use an online translator&quot;</a>
+      
+    </li>
+    
+    <li>
+      <a href="https://pirateinnet.github.io/blog/setuping-a-human-language-dictionary/#just-use-argostranslategui">&quot;just use argostranslategui&quot;</a>
+      
+    </li>
+    
+    <li>
+      <a href="https://pirateinnet.github.io/blog/setuping-a-human-language-dictionary/#but-this-is-just-a-dictionary-not-a-translation-app">but this is just a dictionary, not a translation app</a>
+      
+    </li>
+    
+    <li>
+      <a href="https://pirateinnet.github.io/blog/setuping-a-human-language-dictionary/#setuping-goldendict">setuping goldendict</a>
+      
+      <ul>
+        
+        <li>
+          <a href="https://pirateinnet.github.io/blog/setuping-a-human-language-dictionary/#installing-it">installing it</a>
+        </li>
+         
+        <li>
+          <a href="https://pirateinnet.github.io/blog/setuping-a-human-language-dictionary/#downloading-dictionaries">downloading dictionaries</a>
+        </li>
+         
+        <li>
+          <a href="https://pirateinnet.github.io/blog/setuping-a-human-language-dictionary/#giving-goldendict-the-path-where-the-dicts-are">giving goldendict the path where the dicts are</a>
+        </li>
+         
+      </ul>
+      
+    </li>
+    
+  </ul>
+</details>
+
+            
+
+            <!-- Render the rest of the content after removing the summary portion -->
+            
+<span id="continue-reading"></span><h2 id="what-is-goldendict">what is <strong>goldendict</strong>?</h2>
+<ul>
+<li><strong>goldendict</strong> is a desktop app that searchs in dictionaries for the word you typed, instead searching in a book manually, &amp; it's very light &amp; fast.</li>
+</ul>
+<h2 id="just-use-an-online-translator">"just use an online translator"</h2>
+<ul>
+<li>1st reason: not all people have access to internet all time.</li>
+<li>2nd reason: <a rel="external" href="https://www.msn.com/en-us/news/world/russian-spy-plot-exposed-after-google-translate-mistake/ar-AA1YJRC3">Russian spy get caught due to using Google Translation</a></li>
+</ul>
+<h2 id="just-use-argostranslategui">"just use <strong>argostranslategui</strong>"</h2>
+<ul>
+<li>naah, bro, I hate python dependencies, it's hell, you should install 1000 library for less than 100mb software.</li>
+</ul>
+<h2 id="but-this-is-just-a-dictionary-not-a-translation-app">but this is just a dictionary, not a translation app</h2>
+<ul>
+<li>it fits the needs of someone who wants to learn a language, because translation apps abstract a lot of things &amp; gives you only the final result,
+so, when you translate by a dictionary, you are more likely to acquire vocabularies, &amp; to understand how the sentence formed.</li>
+</ul>
+<hr />
+<h2 id="setuping-goldendict">setuping <strong>goldendict</strong></h2>
+<h3 id="installing-it">installing it</h3>
+<p>if you have debian, if you have something else, use your package manager instead.</p>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #B392F0;">sudo</span><span style="color: #9ECBFF;"> apt install goldendict</span><span style="color: #79B8FF;"> -y</span></span></code></pre><h3 id="downloading-dictionaries">downloading dictionaries</h3>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #B392F0;">mkdir</span><span style="color: #79B8FF;"> -p</span><span style="color: #9ECBFF;"> ~/.local/share/stardict/dic</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">cd</span><span style="color: #9ECBFF;"> ~/.local/share/stardict/dic</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #6A737D;">## you can visit https://download.freedict.org to select the dicts u want</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">wget</span><span style="color: #9ECBFF;"> https://download.freedict.org/dictionaries/eng-ara/0.6.3/freedict-eng-ara-0.6.3.dictd.tar.xz</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">wget</span><span style="color: #9ECBFF;"> https://download.freedict.org/dictionaries/ara-eng/0.6.3/freedict-ara-eng-0.6.3.dictd.tar.xz</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">wget</span><span style="color: #9ECBFF;"> https://download.freedict.org/dictionaries/fra-eng/0.4.1/freedict-fra-eng-0.4.1.dictd.tar.xz</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">wget</span><span style="color: #9ECBFF;"> https://download.freedict.org/dictionaries/eng-fra/0.1.6/freedict-eng-fra-0.1.6.dictd.tar.xz</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #B392F0;">tar</span><span style="color: #9ECBFF;"> xf ...</span></span></code></pre><h3 id="giving-goldendict-the-path-where-the-dicts-are">giving <strong>goldendict</strong> the path where the dicts are</h3>
+<ol>
+<li>type in the terminal <code>goldendict</code></li>
+<li><em>Edit</em> -&gt; <em>Dictionaries</em> <strong>OR</strong> just click <em>F3</em></li>
+<li>click <em>Add...</em> &amp; paste <code>~/.local/share/stardict/dic</code> in Directory &amp; click <em>Choose</em> &amp; then select <em>recursive</em></li>
+<li>click <em>Rescan now</em> &amp; click <em>Apply</em> &amp; then click <em>OK</em>
+<br></li>
+</ol>
+<p><span style="color: #ff0000">c</span> <span style="color: #ff7f00">o</span> <span style="color: #ffff00">n</span> <span style="color: #00ff00">g</span> <span style="color: #0000ff">r</span> <span style="color: #4b0082">a</span> <span style="color: #9400d3">t</span> <span style="color: #ff0000">u</span> <span style="color: #ff7f00">l</span> <span style="color: #ffff00">a</span> <span style="color: #00ff00">t</span> <span style="color: #0000ff">i</span> <span style="color: #4b0082">o</span> <span style="color: #9400d3">n</span> <span style="color: #ff0000">s</span></p>
+<br>
+<img src="img1.png" style="width: 100%; height: auto;" alt="goldendict">
+
+
+        
+    </article>
+
+    <!-- Comment section -->
+    
+      
+    
+
+
+    <!-- Page footer -->
+    
+    <footer>
+        <hr>
+        <p>
+            
+                Published by Youness B.D.
+            
+            
+                
+                in <a href="https://pirateinnet.github.io/blog/categories/trying-software/">trying software</a>
+            
+            
+        </p>
+
+        <!-- Revision history (optional) -->
+        
+          
+            
+              
+            
+          
+        
+
+        
+        
+    </footer>
+
+
+</article>
+
+
+  </main>
+  
+
+</body>
+
+</html>
