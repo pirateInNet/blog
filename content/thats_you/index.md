@@ -14,4 +14,5 @@ toc = true
   <source src="vid.mp4" type="video/mp4">
 </video>
 
-Technology meant to raise life quality, not to replace it.
+Technology meant to raise life quality, not to replace it.<br>
+[feedbro](https://nodetics.com/feedbro/) & [UnHook](https://unhook.app/) browser extensions will help you.
