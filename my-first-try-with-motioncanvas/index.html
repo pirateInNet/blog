@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💡</text></svg>" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  
+  
+  
+  <meta name="description" content="documenting my journey learning how to use that tool." />
+  <meta property="og:description" content="documenting my journey learning how to use that tool." />
+  <meta property="twitter:description" content="documenting my journey learning how to use that tool." />
+  
+  
+
+  <!-- Title -->
+  
+  
+  
+  <title>
+    
+    My first try with Motion Canvas
+    
+</title>
+
+  <!-- Additional Facebook Meta Tags -->
+  <meta property="og:site_name" content="blog" />
+  <meta property="og:url" content="https:&#x2F;&#x2F;pirateinnet.github.io&#x2F;blog&#x2F;my-first-try-with-motioncanvas&#x2F;" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="My first try with Motion Canvas" />
+
+  <!-- Additional Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https:&#x2F;&#x2F;pirateinnet.github.io&#x2F;blog&#x2F;my-first-try-with-motioncanvas&#x2F;" />
+  <meta name="twitter:title" content="My first try with Motion Canvas" />
+
+  <!-- Additional Fediverse Tags -->
+   
+
+  <!-- Cover images -->
+  
+  
+
+  <meta property="og:image" content="https:&#x2F;&#x2F;pirateinnet.github.io&#x2F;blog&#x2F;&#x2F;icons&#x2F;favicon&#x2F;web-app-manifest-512x512.png" />
+
+  <meta name="twitter:image" content="https:&#x2F;&#x2F;pirateinnet.github.io&#x2F;blog&#x2F;&#x2F;icons&#x2F;favicon&#x2F;web-app-manifest-512x512.png" />
+
+  <!-- Favicons -->
+  
+
+  <!-- RSS Feed -->
+  
+  <link rel="alternate" type="application/atom+xml" title="RSS" href="https://pirateinnet.github.io/blog/atom.xml" />
+  
+
+  <!-- Load Styles -->
+  
+  <link rel="stylesheet" href="https://pirateinnet.github.io/blog/site.css" />
+  
+
+  <!-- Syntax highlighting theming -->
+  
+
+  <!-- Load Fonts -->
+  
+
+  
+
+
+
+
+
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+  
+
+
+
+<!-- Forcing Font -->
+<style>
+body {
+  font-family:
+    "JetBrains Mono", Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New,
+    monospace, serif !important;
+}
+</style>
+
+
+  <!-- Pass Theme Preference as Data Attribute -->
+  <script src="https://pirateinnet.github.io/blog/js/init-theme.js"></script>
+
+  <!-- Reference return to click position script -->
+  <script defer src="https://pirateinnet.github.io/blog/js/reference-return.js"></script>
+
+  <!-- Additional scripts -->
+  
+  
+  <script defer src="https://pirateinnet.github.io/blog/js/codeblock.js"></script>
+  
+  
+  <script src="https://pirateinnet.github.io/blog/js/toggle-theme.js"></script>
+  
+  
+<!-- MathJax script for rendering LaTeX math equations -->
+<script src="https://pirateinnet.github.io/blog/js/mathjax-config.js"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+  async
+></script>
+
+
+  
+<script type="text/javascript" src="https://pirateinnet.github.io/blog/elasticlunr.min.js"></script>
+<script type="text/javascript" src="https://pirateinnet.github.io/blog/js/search.js"></script>
+
+  
+</head>
+
+<!-- Body element (contents of the page) -->
+
+<body class="hack main container">
+  
+
+  
+    
+  
+  
+  <section class="nav-header">
+    <nav
+      itemscope
+      itemtype="http://schema.org/SiteNavigationElement"
+      class="navbar"
+    >
+      <section class="nav-links">
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://pirateinnet.github.io/blog/"
+        >
+          <span itemprop="name">Home</span>
+        </a>
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://pirateinnet.github.io/blog//categories"
+        >
+          <span itemprop="name">Categories</span>
+        </a>
+        
+        <a
+          itemprop="url"
+          class=""
+          href="https://pirateinnet.github.io/blog//tags"
+        >
+          <span itemprop="name">Tags</span>
+        </a>
+        
+      </section>
+    </nav>
+    <aside class="user-actions-container">
+      
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        class="search-icon"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+        />
+      </svg>
+      <input type="text" id="search" placeholder="Search..." />
+      <section class="search-results" aria-live="polite">
+        <article class="search-results__items" role="list"></article>
+      </section>
+        
+      <a
+        href="https://pirateinnet.github.io/blog/atom.xml"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://pirateinnet.github.io/blog/icons/rss.svg"
+          id="rss-icon"
+          alt="RSS feed"
+          class="social-icon"
+        />
+      </a>
+       
+      <a
+        href="https:&#x2F;&#x2F;github.com&#x2F;pirateInNet"
+        class="feed-icon"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="https://pirateinnet.github.io/blog/icons/github.svg"
+          id="github-icon"
+          alt="GitHub"
+          class="social-icon"
+        />
+      </a>
+       
+    </aside>
+  </section>
+  
+
+  
+
+
+  <main>
+
+
+    
+
+
+
+    
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">My first try with Motion Canvas</h1>
+        <data class="muted">
+    <svg class="icon i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <data>2 minute read</data>
+    <svg class="icon i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2026-10-10
+</data>
+    </header>
+
+    <article itemprop="articleBody">
+        
+            <p>documenting my journey learning how to use that tool.</p>
+
+            
+              <details class="toc-container">
+  <summary class="toc-title">Table of Contents</summary>
+  <ul class="toc-list">
+    
+    <li>
+      <a href="https://pirateinnet.github.io/blog/my-first-try-with-motioncanvas/#why-i-will-use-motioncanvas">why I will use MotionCanvas?</a>
+      
+    </li>
+    
+    <li>
+      <a href="https://pirateinnet.github.io/blog/my-first-try-with-motioncanvas/#why-specifically-that-tool">why specifically that tool?</a>
+      
+    </li>
+    
+    <li>
+      <a href="https://pirateinnet.github.io/blog/my-first-try-with-motioncanvas/#the-roadmap-to-learn-it">the roadmap to learn it</a>
+      
+    </li>
+    
+    <li>
+      <a href="https://pirateinnet.github.io/blog/my-first-try-with-motioncanvas/#what-i-made-using-it">what I made using it</a>
+      
+      <ul>
+        
+        <li>
+          <a href="https://pirateinnet.github.io/blog/my-first-try-with-motioncanvas/#bubble-sort-explaining">bubble sort explaining</a>
+        </li>
+        
+        <ul>
+          
+          <li>
+            <a href="https://pirateinnet.github.io/blog/my-first-try-with-motioncanvas/#code">code :</a>
+          </li>
+          
+          <li>
+            <a href="https://pirateinnet.github.io/blog/my-first-try-with-motioncanvas/#explaining">Explaining :</a>
+          </li>
+          
+        </ul>
+         
+      </ul>
+      
+    </li>
+    
+  </ul>
+</details>
+
+            
+
+            <!-- Render the rest of the content after removing the summary portion -->
+            
+<span id="continue-reading"></span>
+<p>firstly</p>
+<h2 id="why-i-will-use-motioncanvas">why I will use MotionCanvas?</h2>
+<p>ok, I said in <a href="../about-me/">About me</a>, that to learn something, you should explain it,
+&amp; animated vids is really good for explaining things.</p>
+<h2 id="why-specifically-that-tool">why specifically that tool?</h2>
+<ul>
+<li><a rel="external" href="https://www.youtube.com/watch?v=4kjEwvrDKlg&amp;t=37s">a vid shows why</a></li>
+</ul>
+<h2 id="the-roadmap-to-learn-it">the roadmap to learn it</h2>
+<ul>
+<li>Learn X in Y minutes
+<ul>
+<li><a rel="external" href="https://learnxinyminutes.com/javascript/">Where X=JavaScript</a></li>
+<li><a rel="external" href="https://learnxinyminutes.com/typescript/">Where X=TypeScript</a></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>
+<p><input disabled="" type="checkbox" checked=""/>
+<strong>JavaScript basics:</strong> Use MDN’s <a rel="external" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">JavaScript Guide</a>.</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+variables</li>
+<li><input disabled="" type="checkbox" checked=""/>
+functions</li>
+<li><input disabled="" type="checkbox" checked=""/>
+arrays</li>
+<li><input disabled="" type="checkbox" checked=""/>
+objects</li>
+<li><input disabled="" type="checkbox" checked=""/>
+imports/exports (Modules).</li>
+</ul>
+</li>
+<li>
+<p><input disabled="" type="checkbox" checked=""/>
+<strong>TypeScript essentials:</strong> Use the <a rel="external" href="https://www.typescriptlang.org/docs/handbook/">TypeScript Handbook</a>; focus on “Everyday Types” and “Object Types.”</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+setup TypeScript workspace or just use a typescript playground
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+<code>clear &amp;&amp; sudo apt install npm nodejs -y</code></li>
+<li><input disabled="" type="checkbox" checked=""/>
+<code>npm init</code></li>
+<li><input disabled="" type="checkbox" checked=""/>
+<code>npm install typescript --save-dev</code></li>
+<li><code>cat package.json</code></li>
+</ul>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="json"><span class="giallo-l"><span>{</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">  &quot;name&quot;</span><span>:</span><span style="color: #9ECBFF;"> &quot;test&quot;</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">  &quot;version&quot;</span><span>:</span><span style="color: #9ECBFF;"> &quot;1.0.0&quot;</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">  &quot;description&quot;</span><span>:</span><span style="color: #9ECBFF;"> &quot;TypeScript test&quot;</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">  &quot;main&quot;</span><span>:</span><span style="color: #9ECBFF;"> &quot;index.js&quot;</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">  &quot;scripts&quot;</span><span>: {</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">    &quot;test&quot;</span><span>:</span><span style="color: #9ECBFF;"> &quot;echo </span><span style="color: #79B8FF;">\&quot;</span><span style="color: #9ECBFF;">Error: no test specified</span><span style="color: #79B8FF;">\&quot;</span><span style="color: #9ECBFF;"> &amp;&amp; exit 1&quot;</span></span>
+<span class="giallo-l"><span>  },</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">  &quot;author&quot;</span><span>:</span><span style="color: #9ECBFF;"> &quot;YBD&quot;</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">  &quot;license&quot;</span><span>:</span><span style="color: #9ECBFF;"> &quot;ISC&quot;</span><span>,</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">  &quot;devDependencies&quot;</span><span>: {</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">    &quot;typescript&quot;</span><span>:</span><span style="color: #9ECBFF;"> &quot;^7.0.2&quot;</span></span>
+<span class="giallo-l"><span>  }</span></span>
+<span class="giallo-l"><span>}</span></span></code></pre>
+<ul>
+<li><code>micro index.ts</code></li>
+<li><code>npx tcs index.ts</code> to run the TypeScript file</li>
+<li><code>node index.js</code></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox" checked=""/>
+basic types</li>
+<li><input disabled="" type="checkbox" checked=""/>
+functions</li>
+<li><input disabled="" type="checkbox" checked=""/>
+interfaces.</li>
+</ul>
+</li>
+<li>
+<p><input disabled="" type="checkbox" checked=""/>
+<strong>JSX basics:</strong> Use the Motion Canvas <a rel="external" href="https://canvascommons.io/docs/quickstart?language=tsx#programming-an-animation">documentation and examples</a> to see JSX in context; you don’t need to learn React first.</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Learn how tags and expressions describe visual elements.</li>
+</ul>
+</li>
+<li>
+<p><input disabled="" type="checkbox" checked=""/>
+<strong>Animation basics:</strong> Follow the code examples in the <a rel="external" href="https://slama.dev/motion-canvas/">Motion Canvas tutorial series</a>.</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+setup it, (damn, npm install takes too much time)</li>
+</ul>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="shellscript"><span class="giallo-l"><span style="color: #B392F0;">$</span><span style="color: #9ECBFF;"> npm init @canvas-commons@latest</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">Need</span><span style="color: #9ECBFF;"> to install the following packages:</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">  @canvas-commons/create@0.4.0</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">Ok</span><span style="color: #9ECBFF;"> to proceed?</span><span> (y) y</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">✔</span><span style="color: #9ECBFF;"> Project name … my-animation-1</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">✔</span><span style="color: #9ECBFF;"> Project path … my-animation-1</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">✔</span><span style="color: #9ECBFF;"> Language › TypeScript</span><span> (Recommended)</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">✔</span><span style="color: #9ECBFF;"> How would you like to render your animation? › Image sequence, Video</span><span> (WebCodecs)</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span style="color: #B392F0;">√</span><span style="color: #9ECBFF;"> Scaffolding complete. You can now run:</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">  cd</span><span style="color: #9ECBFF;"> my-animation-1</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">  npm</span><span style="color: #9ECBFF;"> install</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">  npm</span><span style="color: #9ECBFF;"> start</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">$</span><span style="color: #9ECBFF;"> npm config set fetch-timeout</span><span style="color: #79B8FF;"> 600000</span></span>
+<span class="giallo-l"><span style="color: #B392F0;">$</span><span style="color: #9ECBFF;"> npx get-pnpm</span><span style="color: #6A737D;"> # only if you want to use pnpm</span></span></code></pre>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Practice position</li>
+<li><input disabled="" type="checkbox" checked=""/>
+scale</li>
+<li><input disabled="" type="checkbox" checked=""/>
+opacity</li>
+<li><input disabled="" type="checkbox" checked=""/>
+timing</li>
+<li><input disabled="" type="checkbox" checked=""/>
+and easing.</li>
+</ul>
+</li>
+<li>
+<p><input disabled="" type="checkbox" checked=""/>
+<strong>Motion Canvas API:</strong> Use the <a rel="external" href="https://canvascommons.io/docs/">Motion Canvas docs</a> alongside the tutorial examples.</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+scenes</li>
+<li><input disabled="" type="checkbox" checked=""/>
+shapes</li>
+<li><input disabled="" type="checkbox" checked=""/>
+text</li>
+<li><input disabled="" type="checkbox" checked=""/>
+layout</li>
+<li><input disabled="" type="checkbox" checked=""/>
+signals</li>
+<li><input disabled="" type="checkbox" checked=""/>
+effects</li>
+<li><input disabled="" type="checkbox" checked=""/>
+references</li>
+</ul>
+</li>
+<li>
+<p><input disabled="" type="checkbox" checked=""/>
+<strong>Project workflow:</strong> Use the setup and project guides in the Motion Canvas docs.</p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+Learn to run the preview, organize scenes, sync audio, and export.</li>
+<li><code>ffmpeg -framerate 60 -i %06d.png -c:v libx264 -pix_fmt yuv420p -crf 18 out.mp4</code></li>
+</ul>
+</li>
+<li>
+<p><input disabled="" type="checkbox" checked=""/>
+<strong>make something on your own</strong></p>
+<ul>
+<li><input disabled="" type="checkbox" checked=""/>
+1 vid</li>
+<li><input disabled="" type="checkbox" checked=""/>
+put it in YT</li>
+<li><input disabled="" type="checkbox" checked=""/>
+put the code in GitHub</li>
+</ul>
+</li>
+</ol>
+<h2 id="what-i-made-using-it">what I made using it</h2>
+<h3 id="bubble-sort-explaining">bubble sort explaining</h3>
+<hr />
+<h4 id="code">code :</h4>
+<pre class="giallo" style="color: #E1E4E8; background-color: #24292E;"><code data-lang="python"><span class="giallo-l"><span style="color: #6A737D;"># bubble sort</span></span>
+<span class="giallo-l"><span style="color: #6A737D;"># 1 - make a random array</span></span>
+<span class="giallo-l"><span style="color: #F97583;">from</span><span> random</span><span style="color: #F97583;"> import</span><span> randint</span><span style="color: #F97583;"> as</span><span> rn</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>array</span><span style="color: #F97583;"> =</span><span> []</span></span>
+<span class="giallo-l"><span style="color: #F97583;">for</span><span> i</span><span style="color: #F97583;"> in</span><span style="color: #79B8FF;"> range</span><span>(</span><span style="color: #79B8FF;">0</span><span>, rn(</span><span style="color: #79B8FF;">5</span><span>,</span><span style="color: #79B8FF;"> 10</span><span>)):</span></span>
+<span class="giallo-l"><span>    array.append(rn(</span><span style="color: #79B8FF;">0</span><span>,</span><span style="color: #79B8FF;"> 100</span><span>))</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">print</span><span>(</span><span style="color: #F97583;">f</span><span style="color: #9ECBFF;">&quot;&quot;&quot;</span></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">the array is </span><span style="color: #79B8FF;">{</span><span>array</span><span style="color: #79B8FF;">}</span></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">length is </span><span style="color: #79B8FF;">{len</span><span>(array)</span><span style="color: #79B8FF;">}</span></span>
+<span class="giallo-l"><span style="color: #9ECBFF;">&quot;&quot;&quot;</span><span>)</span></span>
+<span class="giallo-l"><span style="color: #6A737D;"># 2 - sort it</span></span>
+<span class="giallo-l"><span>end_point</span><span style="color: #F97583;"> =</span><span style="color: #79B8FF;"> len</span><span>(array)</span><span style="color: #F97583;"> -</span><span style="color: #79B8FF;"> 1</span></span>
+<span class="giallo-l"><span>step</span><span style="color: #F97583;"> =</span><span style="color: #79B8FF;"> 1</span></span>
+<span class="giallo-l"><span style="color: #F97583;">while</span><span> end_point</span><span style="color: #F97583;"> !=</span><span style="color: #79B8FF;"> 0</span><span style="color: #F97583;"> and</span><span style="color: #79B8FF;"> len</span><span>(array)</span><span style="color: #F97583;"> &gt;</span><span style="color: #79B8FF;"> 1</span><span>:</span></span>
+<span class="giallo-l"><span style="color: #F97583;">    for</span><span> i</span><span style="color: #F97583;"> in</span><span style="color: #79B8FF;"> range</span><span>(</span><span style="color: #79B8FF;">0</span><span>, end_point):</span></span>
+<span class="giallo-l"><span style="color: #F97583;">        if</span><span> array[i]</span><span style="color: #F97583;"> &gt;</span><span> array[i</span><span style="color: #F97583;"> +</span><span style="color: #79B8FF;"> 1</span><span>]:</span></span>
+<span class="giallo-l"><span>            array[i], array[i</span><span style="color: #F97583;"> +</span><span style="color: #79B8FF;"> 1</span><span>]</span><span style="color: #F97583;"> =</span><span> array[i</span><span style="color: #F97583;"> +</span><span style="color: #79B8FF;"> 1</span><span>], array[i]</span></span>
+<span class="giallo-l"><span style="color: #79B8FF;">        print</span><span>(</span><span style="color: #F97583;">f</span><span style="color: #9ECBFF;">&quot;step </span><span style="color: #79B8FF;">{</span><span>step</span><span style="color: #79B8FF;">}</span><span style="color: #9ECBFF;">:</span><span style="color: #79B8FF;">{</span><span>array</span><span style="color: #79B8FF;">}</span><span style="color: #9ECBFF;"> &amp; end_point = </span><span style="color: #79B8FF;">{</span><span>end_point</span><span style="color: #79B8FF;">}</span><span style="color: #9ECBFF;">&quot;</span><span>)</span></span>
+<span class="giallo-l"><span>        step</span><span style="color: #F97583;"> +=</span><span style="color: #79B8FF;"> 1</span></span>
+<span class="giallo-l"><span>    end_point</span><span style="color: #F97583;"> -=</span><span style="color: #79B8FF;"> 1</span></span></code></pre><h4 id="explaining">Explaining :</h4>
+<ul>
+<li><a rel="external" href="https://www.youtube.com/watch?v=TJwa8Q3H8rQ">YT</a></li>
+<li><a rel="external" href="https://github.com/pirateInNet/canvas-commons_Work/tree/main/my-animation-1">GitHub</a></li>
+</ul>
+<hr />
+<p>all that was just for relearning how to learn by myself, It's fucked up</p>
+
+
+        
+    </article>
+
+    <!-- Comment section -->
+    
+      
+    
+
+
+    <!-- Page footer -->
+    
+    <footer>
+        <hr>
+        <p>
+            
+                Published by Y.B.D.
+            
+            
+                
+                in <a href="https://pirateinnet.github.io/blog/categories/programming/">programming</a>
+            
+            
+                and
+                tagged
+                
+                    <a href="https://pirateinnet.github.io/blog/tags/javascript-typescript/">JavaScript&#x2F;TypeScript</a>
+                    
+                        
+                            
+                                and
+                            
+                        
+                    
+                
+                    <a href="https://pirateinnet.github.io/blog/tags/vedio-making/">vedio making</a>
+                    
+                        
+                    
+                
+            
+        </p>
+
+        <!-- Revision history (optional) -->
+        
+          
+            
+              
+            
+          
+        
+
+        
+        
+    </footer>
+
+
+</article>
+
+
+  </main>
+  
+
+</body>
+
+</html>
