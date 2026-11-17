@@ -1,9 +1,6 @@
 # YBD blog
-- This is my blog, I write about programming, cyber security, & some other topics like basic GUI stuff
-
+- This is my blog, I write about programming, & ...
 - I use [Zola](https://www.getzola.org/).
-
-- what is the meaning of life without pain
 
 ***
 
